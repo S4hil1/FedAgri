@@ -18,8 +18,8 @@ Agricultural disease data is distributed across farms, cooperatives, and researc
 ---
 ## Repository structure
 ```
-FL_P2/
-├── README.md
+
+README.md
 ├── code/                                      # Experiment notebooks (PyTorch FL + TF baselines)
 │   ├── sample_data.ipynb                      # MaizeDNIID partition creation & distribution plots
 │   ├── FD_Maize_HETEROGENEOUS_multi_processing.ipynb   # Main FL training pipeline
@@ -36,9 +36,7 @@ FL_P2/
 │   ├── Maize_experiments_on_AUGMENTED_TENSORFLOW.ipynb
 │   ├── Maize_disease_classification_pytorch.ipynb
 │   └── ...
-├── FL__1_Minimized/
-│   └── main.tex                               # Paper source (IEEE journal format)
-└── Dataset_Maize_DD/                          # Dataset (not included — see below)
+└── Dataset_Maize_DD/                          # Dataset
     └── 1_CREATED_NEW_SAMPLE_split/
         ├── train/
         ├── validation/
@@ -90,11 +88,11 @@ Pre-built partitions used in experiments: `Federated_data_maize/client_10`, `cli
 | Loss | Cross-entropy |
 | Local batch size | 4, 8, 16 (main results use **16**) |
 | Communication rounds (T) | **50** |
-| Local epochs (E) | **2, 5, 10** (swept) |
+| Local epochs (E) | **2, 5, 10** |
 | Clients (K) | **10, 32, 64** |
 | Client participation | **Full** — all K clients every round |
 | Local train/val split | 80% / 20% |
-| FedCADR scaling (β) | **0.3** |
+| FedCADR scaling (β) | **0.83** |
 | Input resolution | 128×128 (FL notebooks), ImageNet normalization |
 | Random seeds | Single-run experiments (no multi-seed averaging reported) |
 ### Evaluated aggregators
