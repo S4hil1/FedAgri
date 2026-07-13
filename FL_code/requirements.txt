@@ -1,0 +1,24 @@
+# FedAgri / MaizeDNIID — Python dependencies
+#
+# Install (from ``new code/`` or project root)::
+#
+#   pip install -r "new code/requirements.txt"
+#   pip install -r requirements.txt          # if cwd is new code/
+#
+# PyTorch CUDA wheels (optional, pick matching CUDA)::
+#   https://pytorch.org/get-started/locally/
+
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.23.0
+matplotlib>=3.7.0
+Pillow>=9.0.0
+scikit-learn>=1.2.0
+pandas>=1.5.0
+tqdm>=4.65.0
+pynvml>=11.5.0
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Optional — only for Maize_Hetero.ipynb PySyft experiments
+# syft>=0.8.0

@@ -29,20 +29,30 @@ Agricultural disease data is distributed across farms, cooperatives, and researc
 ## Repository structure
 
 ```
-/
-README.md
-├── code/                                      # Experiment notebooks (PyTorch FL + TF baselines)
-│   ├── FL_dataset_creation.ipynb                      # MaizeDNIID partition creation & distribution plots
-│   ├── FD_Maize_HETEROGENEOUS_multi_processing.ipynb   # Main FL training pipeline
-│   ├── FD_Maize_HETEROGENEOUS.ipynb           # Earlier heterogeneous FL variant
-│   ├── FD_Maize.ipynb                         # Initial federated maize experiments
-│   ├── test_fed_agg_sync.ipynb                # Aggregation method comparison
+FL_P2/
+├── README.md
+├── new code/                                  # Clean, commented FL code (recommended)
+│   ├── run/
+│   │   ├── code/                           # Shared Python package
+│   │   ├── utils/                             # Experiment CLI helpers
+│   │   ├── baselines/ | proposed/ | experiments/
+│   │   └── create_partitions.py
+│   ├── FL_dataset_creation.ipynb              # MaizeDNIID partition creation
+│   ├── FD_Maize_HETEROGENEOUS_multi_processing.ipynb
+│   ├── FD_Maize_HETEROGENEOUS.ipynb
+│   ├── FD_Maize.ipynb
+│   ├── test_fed_agg_sync.ipynb
 │   ├── Maize_Hetero.ipynb
-└── Dataset_Maize_DD/                          # Dataset
-    └── Maize_Disease_Dataset/
+│   └── requirements.txt
+├── saved/code/                                # Original experiment notebooks (archive)
+├── FL__1_Minimized/
+│   └── main.tex                               # Paper source (IEEE journal format)
+└── Dataset_Maize_DD/                          # Dataset (upload separately)
+    └── 1_CREATED_NEW_SAMPLE_split/
         ├── train/
         ├── validation/
         └── test/
+```
 
 > **Note:** The dataset is not bundled in this repository due to size and licensing. See [Dataset setup](#dataset-setup) for expected layout and sources.
 
@@ -75,7 +85,7 @@ Data sources include [PlantVillage](https://plantvillage.psu.edu/), Corn/Maize, 
 
 ### Non-IID partitioning protocol
 
-Partitions are **not** Dirichlet-based. Client data is built with a **random class-and-sample assignment** procedure (`create_federated_dataset` in `code/sample_data.ipynb`):
+Partitions are **not** Dirichlet-based. Client data is built with a **random class-and-sample assignment** procedure (`create_federated_dataset` in `new code/FL_dataset_creation.ipynb`):
 
 1. Read class folders from the centralized **train** split.
 2. For each client `k ∈ {0, …, K−1}`:
@@ -137,10 +147,12 @@ EfficientNet, MobileNet, MobileViT, SqueezeNet, and **FedCAMNet** (proposed).
 - TensorFlow/Keras (optional — centralized baseline notebooks only)
 - CUDA-capable GPU recommended (experiments used NVIDIA Tesla P100)
 
-Install dependencies manually (no `requirements.txt` is provided yet):
+Install dependencies:
 
 ```bash
-pip install torch torchvision numpy pandas scikit-learn matplotlib tqdm jupyter
+pip install -r requirements.txt
+# or from new code/:
+# pip install -r "new code/requirements.txt"
 ```
 
 ### Dataset setup
@@ -277,7 +289,7 @@ This repository is released for academic research. Dataset images retain the lic
 ## Roadmap
 
 - [ ] Release MaizeDNIID partition index files for reproducibility
-- [ ] Add `requirements.txt` and seed-controlled partitioning script
-- [ ] Refactor notebooks into importable Python modules (`fedagri/`)
+- [x] Add `requirements.txt` and seed-controlled partitioning script
+- [x] Refactor notebooks into importable Python modules (`run/code/`)
 - [ ] Multi-seed experiment reporting
 - [ ] Partial client participation and edge-device evaluation
