@@ -289,7 +289,7 @@ This repository is released for academic research. Dataset images retain the lic
 ## Roadmap
 
 - [ ] Release MaizeDNIID partition index files for reproducibility
-- [x] Add `requirements.txt` and seed-controlled partitioning script
-- [x] Refactor notebooks into importable Python modules (`run/code/`)
+- [ ] Add `requirements.txt` and seed-controlled partitioning script
+- [ ] Refactor notebooks into importable Python modules (`run/code/`)
 - [ ] Multi-seed experiment reporting
 - [ ] Partial client participation and edge-device evaluation
