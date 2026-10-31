@@ -15,7 +15,6 @@ Two main components:
 | Component | Description |
 |-----------|-------------|
 | **FedCADR** | Federated Class-aware Adaptive Drift-controlled Residual aggregation — separates feature-level averaging from class-wise classifier residual updates with magnitude normalization and adaptive scaling (β) |
-
 | **MaizeDNIID** | Non-IID maize disease benchmark with explicit random partitioning and quantified heterogeneity metrics |
 
 
