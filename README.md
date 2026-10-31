@@ -74,7 +74,7 @@ FL_P2/
 | Test | 3,220 | Held-out final evaluation (460/class) |
 | **Total** | **19,320** | 80% / 10% / 10% train / val / test |
 
-Data sources include [PlantVillage](https://plantvillage.psu.edu/), Corn/Maize, Maize in Field, Makerere University, Nelson Mandela, and KaraAgro field collections (see paper for citations).
+Data sources include PlantVillage, Corn/Maize, Maize in Field, Makerere University, Nelson Mandela, and KaraAgro field collections (see paper for citations).
 
 ### Non-IID partitioning protocol
 
