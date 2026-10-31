@@ -1,30 +1,24 @@
-# FedAgri: Federated Learning for Non-IID Maize Disease Detection
+# Federated Learning for Non-IID Maize Disease Detection
 
-Official implementation and experimental artifacts for **FedAgri** — a privacy-preserving federated learning framework for maize disease classification under heterogeneous (Non-IID) agricultural data distributions.
+A privacy-preserving federated learning framework for maize disease classification under heterogeneous (Non-IID) agricultural data distributions.
 
-> **Paper:** *FedAgri: A Federated Learning Framework for Non-IID Maize Disease Detection*  
+> **Paper:** *A Federated Learning Framework for Non-IID Maize Disease Detection*  
 > Sahil Pathak, Sujata Pal, Deepti R. Bathula — IIT Ropar
 
 ---
 
 ## Overview
 
-Agricultural disease data is distributed across farms, cooperatives, and research institutions and is rarely Independent and Identically Distributed (IID). **FedAgri** addresses this with two main components:
+Agricultural disease data is distributed across farms, cooperatives, and research institutions and is rarely Independent and Identically Distributed (IID). 
+Two main components:
 
 | Component | Description |
 |-----------|-------------|
 | **FedCADR** | Federated Class-aware Adaptive Drift-controlled Residual aggregation — separates feature-level averaging from class-wise classifier residual updates with magnitude normalization and adaptive scaling (β) |
-| **FedCAMNet** | Lightweight context-aware model built on MobileNetV2 with channel attention and Kolmogorov–Arnold Network (KAN) layers for resource-constrained edge clients |
+
 | **MaizeDNIID** | Non-IID maize disease benchmark with explicit random partitioning and quantified heterogeneity metrics |
 
-### Key results
 
-- **96.5%** global accuracy with 10 clients (FedCADR + FedCAMNet), ~4–5% above FedAvg
-- **93.5%** accuracy at **64 clients** with negligible aggregation overhead
-- Worst-case client accuracy gap reduced from **32% → 8%** (32-client Non-IID setting)
-- ~**0.80 Wh** estimated energy per training round for FedCAMNet
-
----
 
 ## Repository structure
 
@@ -132,7 +126,7 @@ FedAvg, FedAvgM, FedAdam, FedYogi, FedNova, FedProx, FedMedian, Krum, Trimmed Me
 
 ### Evaluated models
 
-EfficientNet, MobileNet, MobileViT, SqueezeNet, and **FedCAMNet** (proposed).
+EfficientNet, MobileNet, MobileViT, SqueezeNet
 
 ---
 
@@ -194,7 +188,7 @@ global_model, client_losses, client_accuracies, global_accuracies = StartFedLear
     base_client_folder,
     num_clients=32,
     rounds=50,
-    aggregation_method=federated_avg,  # or FedAgri, krum, median_aggregation, etc.
+    aggregation_method=federated_avg,  # or , krum, median_aggregation, etc.
 )
 ```
 
@@ -244,31 +238,6 @@ See Algorithm 1 in `FL__1_Minimized/main.tex` for full pseudocode.
 
 ---
 
-## FedCAMNet (summary)
-
-```
-Input → MobileNetV2 backbone → Context-aware module (channel attention) → KAN layers → Softmax classifier
-```
-
-All clients share the same architecture. Local training adapts weights to client-specific patterns; FedCADR stabilizes classifier aggregation under label skew.
-
----
-
-## Citation
-
-If you use this code or the MaizeDNIID benchmark, please cite:
-
-```bibtex
-@article{pathak2026fedagri,
-  title   = {FedAgri: A Federated Learning Framework for Non-IID Maize Disease Detection},
-  author  = {Pathak, Sahil and Pal, Sujata and Bathula, Deepti R.},
-  journal = {IEEE},
-  year    = {2026},
-  institution = {Indian Institute of Technology Ropar}
-}
-```
-
----
 
 ## Authors
 
